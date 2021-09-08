@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC '-//mybatis.org//DTD Config 3.0//EN'
+	'http://mybatis.org/dtd/mybatis-3-config.dtd'>
+<configuration>
+	<properties resource="database.properties"/>
+	<typeAliases>
+		<typeAlias type="com.pet.model.PetUserLogin" alias="aliasUserLogin"/>
+		<typeAlias type="com.pet.model.Doctor" alias="aliasDoctor"/>
+		<typeAlias type="com.pet.model.Owner" alias="aliasOwner"/>
+		<typeAlias type="com.pet.model.Pet" alias="aliasPet"/>
+		<typeAlias type="com.pet.model.Species" alias="aliasSpecies"/>
+		<typeAlias type="com.pet.model.Schedule" alias="aliasSchedule"/>
+		<typeAlias type="com.pet.model.Appointment" alias="aliasApp"/>		
+		<typeAlias type="com.pet.model.Payment" alias="aliasPayment"/>
+		<typeAlias type="com.pet.model.Card" alias="aliasCard"/>
+		<typeAlias type="com.pet.model.DrugType" alias="aliasDrugType"/>						
+		<typeAlias type="com.pet.model.PetDrug" alias="aliasPetDrug"/>						
+	</typeAliases>
+		
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type='JDBC'/>
+			<dataSource type='POOLED'>
+				<property name="driver" value="${jdbc.driverClassName}"/>
+				<property name="url" value="${jdbc.url}"/>
+				<property name="username" value="${jdbc.username}"/>
+				<property name="password" value="${jdbc.password}"/>				
+			</dataSource>
+		</environment>	
+	</environments>
+	<mappers>
+		<mapper resource="com/pet/mapper/UserLoginMapper.xml"/>
+		<mapper resource="com/pet/mapper/AdminRegisterMapper.xml"/>
+		<mapper resource="com/pet/mapper/DoctorMapper.xml"/>
+		<mapper resource="com/pet/mapper/OwnerMapper.xml"/>
+		<mapper resource="com/pet/mapper/SpeciesMapper.xml"/>
+		<mapper resource="com/pet/mapper/PetMapper.xml"/>
+		<mapper resource="com/pet/mapper/ScheduleMapper.xml"/>
+		<mapper resource="com/pet/mapper/AppointmentMapper.xml"/>
+		<mapper resource="com/pet/mapper/PaymentMapper.xml"/>
+		<mapper resource="com/pet/mapper/CardMapper.xml"/>
+		<mapper resource="com/pet/mapper/DrugTypeMapper.xml"/>
+		<mapper resource="com/pet/mapper/PetDrugMapper.xml"/>
+		<mapper class="com.pet.mapper.ProcAnnotationMapper"/>
+	</mappers>
+</configuration>	

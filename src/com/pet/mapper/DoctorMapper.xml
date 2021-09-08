@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC '-//mybatis.org//DTD Mapper 3.0/EN'
+'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace="com.pet.mapper.DoctorMapper">
+	<insert id="insertDoctor" parameterType="aliasDoctor">
+		insert into doctor values
+		(#{doctorId},#{doctorName},#{doctorRank})
+	</insert>
+	
+	<resultMap id="mapDoctor" type="aliasDoctor">
+		<result column="doctor_id" property="doctorId"/>
+		<result column="doctor_name" property="doctorName"/>
+		<result column="doctor_rank" property="doctorRank"/>
+	</resultMap>
+	<select id="getAll" resultMap="mapDoctor">
+		select * from doctor
+	</select>
+	
+	<resultMap id="mapDoctorById" type="aliasDoctor">
+		<result column="doctor_id" property="doctorId"/>
+		<result column="doctor_name" property="doctorName"/>
+		<result column="doctor_rank" property="doctorRank"/>
+	</resultMap>	
+	<select id="getDoctorById" resultMap="mapDoctorById">
+		select * from doctor
+		where doctor_id=#{doctorId}
+	</select>
+	
+	<update id="updateDoctor" parameterType="aliasDoctor">
+		update doctor set
+				doctor_name=#{doctorName},
+				doctor_rank=#{doctorRank}
+		where doctor_id=#{doctorId}		
+	</update>
+</mapper>

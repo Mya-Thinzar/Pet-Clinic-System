@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC '-//mybatis.org//DTD Mapper 3.0/EN'
+'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace="com.pet.mapper.DrugTypeMapper">
+<!-- 
+	<insert id="insertDrugType" parameterType="aliasDrugType"
+	useGeneratedKeys="true" keyProperty="drug_id">
+		insert into drug_type values
+		(#{drugId},#{drugName},#{drugDuration},#{drugDurationType})
+    <selectKey resultType="int" order="AFTER" keyProperty="drugId">
+        SELECT LAST_INSERT_ID() as drugId
+    </selectKey>
+	</insert>
+ -->	
+	<resultMap id="mapDrugType" type="aliasDrugType">
+		<id column="drug_id" property="drugId"/>
+		<result column="drug_name" property="drugName"/>
+		<result column="drug_duration" property="drugDuration"/>
+		<result column="drug_duration_type" property="drugDurationType"/>
+	</resultMap>
+	<select id="getAll" resultMap="mapDrugType">
+		select * from drug_type
+	</select>	
+</mapper>

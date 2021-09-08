@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC '-//mybatis.org//DTD Mapper 3.0/EN'
+'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace="com.pet.mapper.PaymentMapper">
+	<insert id="insertPayment" parameterType="aliasPayment">
+		insert into payment values
+		(#{voucherNo},#{paymentDate},#{paymentAmt},#{paymentStatus})
+	</insert>
+	
+	<resultMap id="mapPayment" type="aliasPayment">
+		<result column="voucher_no" property="voucherNo"/>
+		<result column="payment_date" property="paymentDate"/>
+		<result column="payment_amt" property="paymentAmt"/>
+		<result column="payment_status" property="paymentStatus"/>
+	</resultMap>
+	<select id="getAllPayments" resultMap="mapPayment">
+		select * from payment
+	</select>
+</mapper>

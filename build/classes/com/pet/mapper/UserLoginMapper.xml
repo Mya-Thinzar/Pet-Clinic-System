@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC '-//mybatis.org//DTD Mapper 3.0/EN'
+'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace="com.pet.mapper.UserLoginMapper">
+
+	<resultMap id="mapLogin" type="aliasUserLogin">
+		<result column="login_id" property="loginId" />
+		<result column="login_password" property="loginPassword" />
+	</resultMap>
+	<select id="getUser" resultMap="mapLogin" parameterType="map">
+		select
+		* from pet_login
+		where login_id=#{loginId} and
+		login_password=md5(#{loginPassword})
+	</select>
+</mapper>
